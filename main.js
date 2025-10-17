@@ -1,4 +1,5 @@
 let productosArray = [];
+const contenedor = document.getElementById('contenedorProductos');
 
 fetch('termos.json')
 .then((response)=>response.json())
@@ -14,11 +15,19 @@ fetch('termos.json')
         <button id = "boton" class="btn btn-primary">Agregar al carrito</button> 
          </div>
          </div> `
+
          let boton = div.querySelector('.btn-primary')
          boton.addEventListener("click",() => {
-            console.log(`Producto Agregado: ${termo.nombre}`)
-         })
-        document.body.appendChild(div);
+            const productoExiste =productosArray.find( t => t.id === termo.id)
+            if(productoExiste){
+                productoExiste.cantidad += 1;
+            }else{
+            productosArray.push({id:termo.id, nombre:termo.nombre,precio:termo.precio,cantidad:1,imagen:termo.imagen})
+            }
+            cargarLocal();
+        })
+        contenedor.appendChild(div);
+
         
         
     }) 
@@ -28,19 +37,7 @@ fetch('termos.json')
     console.error('Error:', error);
 });
 
-
-
-//1.crear el array vacio, y cada vez que agregue algo(push)
-//2.despues del push, setItem
-//3.
-/* 
-document.getElementById('boton')[0].addEventListener(() => {
-            productosArray.push(`id:${div.id}, nombre:${div.nombre},precio: ${div.precio} `)
-            cargarLocal();
-
-        })
 function cargarLocal(){
     localStorage.setItem("productos",JSON.stringify(productosArray))
 }
-    */
-   
+
