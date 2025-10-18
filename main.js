@@ -1,5 +1,13 @@
-let productosArray = [];
+
+let productosArray = JSON.parse(localStorage.getItem("productos")) || [];
 const contenedor = document.getElementById('contenedorProductos');
+
+//contador de carrito
+const carritoNumero = document.getElementById("carritoNumero");
+carritoNumero.textContent = productosArray.length;
+
+
+
 
 fetch('termos.json')
 .then((response)=>response.json())
@@ -18,13 +26,19 @@ fetch('termos.json')
 
          let boton = div.querySelector('.btn-primary')
          boton.addEventListener("click",() => {
-            const productoExiste =productosArray.find( t => t.id === termo.id)
+            const productoExiste = productosArray.find( t => t.id === termo.id)
             if(productoExiste){
                 productoExiste.cantidad += 1;
             }else{
             productosArray.push({id:termo.id, nombre:termo.nombre,precio:termo.precio,cantidad:1,imagen:termo.imagen})
             }
+            
             cargarLocal();
+            carritoNumero.textContent = productosArray.length;
+             Toastify({
+                text: "Producto agregado a tu carrito!",
+                duration: 2000
+            }).showToast();
         })
         contenedor.appendChild(div);
 
