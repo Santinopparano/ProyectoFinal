@@ -10,7 +10,7 @@ const formCompra = document.getElementById('formCompra');
 const mensajeCompra = document.getElementById('mensajeCompra');
 
 let productosCarrito = JSON.parse(localStorage.getItem('productos')) || [];
-
+//resumen en la pagina final
 function mostrarResumen() {
     resumenCarrito.innerHTML = '';
     if (productosCarrito.length === 0) {
@@ -52,12 +52,11 @@ formCompra.addEventListener('submit', (e) => {
     const datosUsuario = Object.fromEntries(new FormData(formCompra).entries());
     const total = productosCarrito.reduce((acc, p) => acc + (p.precio * p.cantidad), 0);
 
-    // Crear el resumen en texto para el mail
     const resumen = productosCarrito.map(p => 
         `${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`
     ).join('\n');
 
-// 📩 Enviar email con EmailJS (usando tu plantilla con {{#orders}})
+//plantilla para mandar el email
 const templateParams = {
     nombre: datosUsuario.nombre,
     email: datosUsuario.email,
@@ -70,7 +69,7 @@ const templateParams = {
         price: p.precio * p.cantidad
     }))
 };
-
+// comprobacion de si el correo se mando
 emailjs.send('service_aeu4bxt', 'template_rz13ofd', templateParams)
     .then(() => {
         console.log("Correo enviado correctamente");
@@ -79,10 +78,10 @@ emailjs.send('service_aeu4bxt', 'template_rz13ofd', templateParams)
         console.error("Error al enviar el correo:", error);
     });
 
-    // Mostrar mensaje de éxito
+    //mostrar mensaje de exito 
     Swal.fire({
         title: `¡Compra realizada con éxito, ${datosUsuario.nombre}!`,
-        text: `Total abonado: $${total}`,
+        text: `Total abonado: $${total} .Se le enviara un correo con el resumen de su compra!`,
         icon: 'success',
         confirmButtonText: 'Aceptar',
         draggable: true

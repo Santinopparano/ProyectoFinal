@@ -5,7 +5,7 @@ let productosCarrito = JSON.parse(localStorage.getItem("productos")) || [];
 const carritoNumero = document.getElementById("carritoNumero");
 carritoNumero.textContent = productosCarrito.length;
 
-// elementos de acción (fuera del forEach)
+
 const btnVaciar = document.getElementById("vaciarCarrito");
 const btnConfirmar = document.getElementById("confirmarCompra");
 const totalCarrito = document.getElementById("totalCarrito");

@@ -1,8 +1,8 @@
-// En un <script> al inicio o en tu main.js
-const logueado = localStorage.getItem("logueado");
 
+const logueado = localStorage.getItem("logueado");
+// verif si no esta logueado 
 if (logueado !== "true") {
-  // No está logueado → lo mandamos al login
+  
   window.location.href = "/login/login.html";
 }
 let productosArray = JSON.parse(localStorage.getItem("productos")) || [];
@@ -11,8 +11,6 @@ const contenedor = document.getElementById('contenedorProductos');
 //contador de carrito
 const carritoNumero = document.getElementById("carritoNumero");
 carritoNumero.textContent = productosArray.length;
-
-
 
 
 fetch('termos.json')
