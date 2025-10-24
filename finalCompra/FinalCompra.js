@@ -52,6 +52,34 @@ formCompra.addEventListener('submit', (e) => {
     const datosUsuario = Object.fromEntries(new FormData(formCompra).entries());
     const total = productosCarrito.reduce((acc, p) => acc + (p.precio * p.cantidad), 0);
 
+    // Crear el resumen en texto para el mail
+    const resumen = productosCarrito.map(p => 
+        `${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`
+    ).join('\n');
+
+// 📩 Enviar email con EmailJS (usando tu plantilla con {{#orders}})
+const templateParams = {
+    nombre: datosUsuario.nombre,
+    email: datosUsuario.email,
+    cost: {
+        total: total
+    },
+    orders: productosCarrito.map(p => ({
+        name: p.nombre,
+        units: p.cantidad,
+        price: p.precio * p.cantidad
+    }))
+};
+
+emailjs.send('service_aeu4bxt', 'template_rz13ofd', templateParams)
+    .then(() => {
+        console.log("Correo enviado correctamente");
+    })
+    .catch((error) => {
+        console.error("Error al enviar el correo:", error);
+    });
+
+    // Mostrar mensaje de éxito
     Swal.fire({
         title: `¡Compra realizada con éxito, ${datosUsuario.nombre}!`,
         text: `Total abonado: $${total}`,
@@ -66,3 +94,4 @@ formCompra.addEventListener('submit', (e) => {
         window.location.href = '../index.html';
     });
 });
+
