@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TermoStore</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="FinalCompra.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+			<a href="../index.html"><img src="/img/imagenlogo.png" alt="Logo" id="logo"></a>
+			<div>
+				<a href="/nosotros/nosotros.html">Sobre Nosotros</a>
+				<div class="usuario-header d-flex align-items-center">
+                <img src="/img/imagenUsuario.webp" alt="Usuario" class="avatar-usuario">
+                <span class="nombre-usuario">Usuario</span>
+            </div>
+				<a href="/carrito/carrito.html" id="cart"><img src="../img/carrito.png" alt=""><span id="carritoNumero">0</span></a>
+			</div>
+		</nav>
+	</header>
+    <div class="container">
+        <h2>Resumen de tu compra</h2>
+        <div id="resumenCarrito"></div>
+
+        <h3>Formulario de Compra</h3>
+        <form id="formCompra">
+            <fieldset>
+                <legend>Datos de envío</legend>
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required>
+                <label>Apellido:</label>
+                <input type="text" name="apellido" required>
+                <label>Email:</label>
+                <input type="email" name="email" required>
+                <label>Dirección:</label>
+                <input type="text" name="direccion" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Método de Pago</legend>
+                <label>Número de tarjeta:</label>
+                <input type="text" name="tarjeta" maxlength="16" minlength="16" placeholder="1234123412341234" required>
+                <label>Fecha de vencimiento (MM/AA):</label>
+                <input type="text" name="vencimiento" maxlength="5" minlength="5" placeholder="12/25" required>
+                <label>Código de seguridad:</label>
+                <input type="text" name="codigo" maxlength="3" minlength="3" placeholder="123" required>
+            </fieldset>
+
+            <button type="submit">Comprar</button>
+        </form>
+
+        <div id="mensajeCompra"></div>
+    </div>
+
+    <script src="finalCompra.js"></script>
+</body>
+</html>

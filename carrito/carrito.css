@@ -32,6 +32,9 @@ a{
 button{
   transition: 200ms;
 }
+.btn-primary {
+  color: white !important; 
+}
 
 a:hover:not(#cart), button:hover{
   color: var(--color-acento);
@@ -64,7 +67,39 @@ header nav div{
 header nav img{
   height: 25px;
 }
+a {
+  text-decoration: none !important;  
+  color: inherit !important;        
+}
 
+a:hover {
+  text-decoration: none;  
+  color: inherit;
+  transform: translateY(-2px);         
+}
+/* parte del header (usuario) */
+.usuario-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.avatar-usuario {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #9b9b9b; 
+}
+
+.nombre-usuario {
+  font-weight: 500;
+  color: #3b2f2f;
+  font-size: 0.95rem;
+}
 #cuenta-carrito{
   position: absolute;
   background-color: var(--color-acento);
@@ -100,3 +135,21 @@ footer a{
   padding: 20px;
 }
 
+
+.acciones-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.botones-carrito button {
+  margin-left: 10px;
+}

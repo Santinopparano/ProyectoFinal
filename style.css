@@ -49,7 +49,16 @@ header nav{
   justify-content: space-between;
   margin: 0 60px;
 }
+a {
+  text-decoration: none !important;  
+  color: inherit !important;        
+}
 
+a:hover {
+  text-decoration: none;  
+  color: inherit;
+  transform: translateY(-2px);         
+}
 #logo{
   height: 70px;
   margin: 20px;
@@ -63,6 +72,29 @@ header nav div{
 
 header nav img{
   height: 25px;
+}
+/* parte del header (usuario) */
+.usuario-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.avatar-usuario {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #9b9b9b; 
+}
+
+.nombre-usuario {
+  font-weight: 500;
+  color: #3b2f2f;
+  font-size: 0.95rem;
 }
 
 #cuenta-carrito{
@@ -84,9 +116,7 @@ footer{
   margin-top: auto;
 }
 
-footer a{
-  text-decoration: underline;
-}
+
 
 #card {
   width: 18rem;

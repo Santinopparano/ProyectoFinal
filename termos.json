@@ -1,7 +1,9 @@
-[{"id":1,"nombre":"termoTitanio","precio":200,"cantidad":1,"imagen":"/img/1.jpg"},
- {"id":2,"nombre":"termoPlata","precio":300,"cantidad":1,"imagen":"/img/2.jpg"},
- {"id":3,"nombre":"termoOro","precio":400,"cantidad":1,"imagen":"/img/3.png"},
- {"id":4,"nombre":"termoDiamante","precio":500,"cantidad":1,"imagen":"/img/4.webp"},
- {"id":5,"nombre":"termoPro","precio":600,"cantidad":1,"imagen":"/img/5.webp"},
- {"id":6,"nombre":"termoBronce","precio":600,"cantidad":1,"imagen":"/img/6.jpg"}
+[{"id":1,"nombre":"Termo R.C","precio":200,"cantidad":1,"imagen":"/img/1.jpg"},
+ {"id":2,"nombre":"Termo Negro","precio":300,"cantidad":1,"imagen":"/img/2.jpg"},
+ {"id":3,"nombre":"Termo con efecto","precio":400,"cantidad":1,"imagen":"/img/3.png"},
+ {"id":4,"nombre":"Termo Stanley","precio":500,"cantidad":1,"imagen":"/img/4.webp"},
+ {"id":5,"nombre":"Termo Classic","precio":600,"cantidad":1,"imagen":"/img/5.webp"},
+ {"id":6,"nombre":"Termo Azul","precio":600,"cantidad":1,"imagen":"/img/6.jpg"},
+ {"id":6,"nombre":"Termo con manija","precio":2300,"cantidad":1,"imagen":"/img/TermoConManija.webp"},
+ {"id":6,"nombre":"Termo Rosa","precio":1200,"cantidad":1,"imagen":"/img/termoRosa.jpg"}
 ]
